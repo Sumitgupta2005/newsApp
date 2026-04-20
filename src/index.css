@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+.navbar{
+  background-color: #333;
+  color: white;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-img{
+  height : 40px;
+  width : 40px;
+  margin: 10px 15px;
+}
+.nav-links{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+ul li{
+  list-style: none;
+  cursor: pointer;
+}
