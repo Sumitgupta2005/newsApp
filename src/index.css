@@ -1,33 +1,144 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+
+html,
+body {
   height: 100%;
   width: 100%;
 }
-.navbar{
+
+.navbar {
   background-color: #333;
   color: white;
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  /* transition: 0.5s; */
 }
-.logo-img{
-  height : 40px;
-  width : 40px;
+
+.navbar.night {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.logo-img {
+  height: 40px;
+  width: 40px;
   margin: 10px 15px;
 }
-.nav-links{
+
+.nav-links {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 50%;
 }
-ul li{
+
+ul li {
   list-style: none;
   cursor: pointer;
+
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 10px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  position: relative;
+  padding: 5px 0;
+  transition: 0.3s;
+}
+
+.nav-links li:hover {
+  color: #007bff;
+}
+
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  margin-left: 8rem;
+}
+
+.search input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logo-img {
+  transition: transform 0.4s ease;
+}
+
+.logo-img:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+
+.menu-icon {
+  display: none;
+  /* hide on desktop */
+}
+
+@media (max-width: 978px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #222;
+    color: black;
+  }
+
+  .menu-icon {
+    display: block;
+    /* show hamburger */
+  }
+}
+
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: #fff;
 }
