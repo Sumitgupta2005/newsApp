@@ -13,12 +13,13 @@ body {
 .navbar {
   background-color: #333;
   color: white;
-  height: 60px;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  /* transition: 0.5s; */
+  justify-content: space-between;
+  /* FIXED */
+  padding: 10px 20px;
+  position: relative;
+  width: 100%;
 }
 
 .navbar.night {
@@ -112,7 +113,6 @@ ul li {
 
 .menu-icon {
   display: none;
-  /* hide on desktop */
 }
 
 @media (max-width: 978px) {
@@ -129,7 +129,6 @@ ul li {
 
   .menu-icon {
     display: block;
-    /* show hamburger */
   }
 }
 
@@ -141,4 +140,87 @@ ul li {
   left: 0;
   width: 100%;
   background: #fff;
+}
+
+.container {
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px;
+
+}
+
+.image {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* desktop */
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-container>* {
+  width: 100%;
+}
+
+@media (max-width: 1148px) {
+  .hero-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 861px) {
+  .hero-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+}
+
+.search {
+  display: flex;
+  gap: 5px;
+}
+
+.search input {
+  width: 120px;
+}
+
+@media (max-width: 480px) {
+  .search {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search input {
+    width: 100%;
+  }
+}
+
+.logo-img {
+  width: 35px;
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 30px;
+  }
 }

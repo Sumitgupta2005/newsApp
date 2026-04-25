@@ -13,6 +13,7 @@ const Navbar = () => {
     setTheme(theme === "day" ? "night" : "day");
   }
 
+
   return (
     <div className={`navbar ${theme}`}>
 
@@ -35,7 +36,6 @@ const Navbar = () => {
       <div className="menu-icon" onClick={() => setOpen(!open)}>
         ☰
       </div>
-      <ul className={`nav-links ${open ? "active" : ""}`}></ul>
 
       <div className="mode">
         <img
@@ -43,11 +43,8 @@ const Navbar = () => {
           src={theme === "day" ? day : night}
           alt="mode"
           className="logo-img"
-          style={{ cursor: "pointer" }}
         />
       </div>
-
-
 
     </div>
   )
