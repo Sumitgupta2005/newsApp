@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Components/Navbar/Navbar'
 import Hero from './Components/Hero'
-import Footer from './Components/Footer';
+import Footer from './Components/Footer'
 
 const App = () => {
 
-  const [articles, setArticles] = useState([]);
-  const [page, setPage] = useState(1);
+  const [articles, setArticles] = useState([])
+  const [page, setPage] = useState(1)
+
+
+  // ✅ GLOBAL THEME (default dark)
+  const [theme, setTheme] = useState("dark")
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
 
   const API_KEY = "9ce44910be29437b9de91919c19b287f"
-
-  const loadMore = () => {
-    const nextPage = page + 1;
-    setPage(nextPage);
-    fetchNews(nextPage);
-  };
-
-  useEffect(() => {
-    fetchNews(1);
-  }, []);
 
   const fetchNews = async (pageNum) => {
     try {
@@ -33,14 +31,25 @@ const App = () => {
     }
   }
 
-  return (
-    <div >
+  useEffect(() => {
+    fetchNews(1)
+  }, [])
 
-      <Navbar />
+  const loadMore = () => {
+    const nextPage = page + 1
+    setPage(nextPage)
+    fetchNews(nextPage)
+  }
+
+  return (
+    <div className={`app ${theme}`}>
+
+      {/* ✅ pass theme + toggle */}
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <div className="hero-container">
         {articles.map((item, index) => (
-          <Hero key={index} data={item} />
+          <Hero key={index} data={item} theme={theme} />
         ))}
       </div>
 

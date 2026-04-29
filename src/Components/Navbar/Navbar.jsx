@@ -3,16 +3,9 @@ import newsLogo from '../../assets/news_app_logo.png'
 import day from '../../assets/day.png'
 import night from '../../assets/night.png'
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
 
-  const [open, setOpen] = useState(false);
-
-  const [theme, setTheme] = useState("day");
-
-  const toggleTheme = () => {
-    setTheme(theme === "day" ? "night" : "day");
-  }
-
+  const [open, setOpen] = useState(false)
 
   return (
     <div className={`navbar ${theme}`}>
@@ -28,10 +21,10 @@ const Navbar = () => {
         <li>Forest</li>
       </ul>
 
-      <div className="search">
+      {/* <div className="search">
         <input type="text" placeholder="Search news..." />
         <button>Search</button>
-      </div>
+      </div> */}
 
       <div className="menu-icon" onClick={() => setOpen(!open)}>
         ☰
@@ -40,7 +33,7 @@ const Navbar = () => {
       <div className="mode">
         <img
           onClick={toggleTheme}
-          src={theme === "day" ? day : night}
+          src={theme === "dark" ? day : night}
           alt="mode"
           className="logo-img"
         />

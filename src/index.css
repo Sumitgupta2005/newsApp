@@ -115,7 +115,7 @@ ul li {
   display: none;
 }
 
-@media (max-width: 978px) {
+@media (max-width: 688px) {
   .nav-links {
     display: none;
     flex-direction: column;
@@ -236,4 +236,36 @@ ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* DARK MODE */
+.app.dark {
+  background: #121212;
+  color: white;
+}
+
+.card.dark {
+  background: #1e1e1e;
+}
+
+/* LIGHT MODE */
+.app.light {
+  background: white;
+  color: black;
+}
+
+.card.light {
+  background: #f5f5f5;
+}
+
+/* DARK NAVBAR */
+.navbar.dark {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* LIGHT NAVBAR */
+.navbar.light {
+  background-color: #ffffff;
+  color: black;
 }
