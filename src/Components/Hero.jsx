@@ -10,6 +10,9 @@ const Hero = ({ data }) => {
       />
       <h4>{data.title}</h4>
       <p>{data.description}</p>
+      <a href={data.url} target="_blank" rel="noopener noreferrer">
+  Read Full Article
+</a>
     </div>
   )
 }

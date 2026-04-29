@@ -166,7 +166,7 @@ ul li {
   box-sizing: border-box;
 }
 
-.hero-container>* {
+.hero-container {
   width: 100%;
 }
 
@@ -223,4 +223,17 @@ ul li {
   .logo-img {
     width: 30px;
   }
+}
+
+.footer-btn{
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  background-color: blue;
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
