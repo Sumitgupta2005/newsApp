@@ -7,6 +7,7 @@ const App = () => {
 
   const [articles, setArticles] = useState([])
   const [page, setPage] = useState(1)
+  const [category, setCategory] = useState("all");
 
 
   // ✅ GLOBAL THEME (default dark)
@@ -18,10 +19,10 @@ const App = () => {
 
   const API_KEY = "9ce44910be29437b9de91919c19b287f"
 
-  const fetchNews = async (pageNum) => {
+  const fetchNews = async (pageNum, selectedCategory = category) => {
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/everything?q=all&page=${pageNum}&pageSize=10&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/everything?q=${selectedCategory}&page=${pageNum}&pageSize=10&apiKey=${API_KEY}`
       )
       const data = await res.json()
 
@@ -41,11 +42,22 @@ const App = () => {
     fetchNews(nextPage)
   }
 
+  const handleCategory = (cat) => {
+  setCategory(cat)
+  setPage(1)
+  fetchNews(1, cat) // fresh data
+}
+
   return (
     <div className={`app ${theme}`}>
 
-      {/* ✅ pass theme + toggle */}
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      
+
+      <Navbar 
+  theme={theme} 
+  toggleTheme={toggleTheme} 
+  onCategoryChange={handleCategory}
+/>
 
       <div className="hero-container">
         {articles.map((item, index) => (
